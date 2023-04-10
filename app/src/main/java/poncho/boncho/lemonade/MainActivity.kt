@@ -9,8 +9,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val processImage: ImageView = findViewById(R.id.imageView)
+        val lemonImage: ImageView = findViewById(R.id.imageView)
+        val lemonade = Lemonade()
+        lemonImage.setImageResource(R.drawable.lemonthree_0001)
+        var condition = 1
+        lemonImage.setOnClickListener{ clickLemonImage(lemonImage, lemonade) }
+    }
 
-        processImage.setImageResource(R.drawable.lemonthree_0001)
+    private fun clickLemonImage(lemonImage: ImageView, lemonade: Lemonade){
+        lemonade.nextCondition()
+        val drawableResours = when (lemonade.condition){
+            1 -> R.drawable.lemonthree_0001
+            2 -> R.drawable.lemonstep2
+            else -> R.drawable.lemonstep2
+        }
+        lemonImage.setImageResource(drawableResours)
+
     }
 }
