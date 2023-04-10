@@ -7,7 +7,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.snackbar.SnackbarContentLayout
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -16,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val lemonade = Lemonade()
-        var ccmain: ConstraintLayout = findViewById(R.id.layoutM)
+        val ccmain: ConstraintLayout = findViewById(R.id.layoutM)
         val defaultSnackbar = Snackbar.make(ccmain, "Вы выжали лемон ${lemonade.squeezeCount} раз",Snackbar.LENGTH_LONG)
         val lemonImage: ImageView = findViewById(R.id.imageView)
         lemonImage.setImageResource(R.drawable.lemon_tree)
@@ -45,14 +44,14 @@ class MainActivity : AppCompatActivity() {
             else -> R.drawable.lemon_restart
         }
         val textResourse = when (lemonadeState){
-            "SELECT"  -> "Нажмите, чтобы выбрать лимон!"
-            "SQUEEZE" -> "Нажмите, чтобы выжать сок из лимона!"
-            "DRINK"   -> "Нажмите, чтобы выпить свой лимонад!"
-            else -> "Нажмите, чтобы начать снова!"
+            "SELECT"  -> getString(R.string.stageOne)
+            "SQUEEZE" -> getString(R.string.stageTwo)
+            "DRINK"   -> getString(R.string.stageThree)
+            else -> getString(R.string.StageEnd)
         }
 
         lemonImage.setImageResource(drawableResourse)
-        instruction.setText(textResourse)
+        instruction.text = textResourse
 
     }
 

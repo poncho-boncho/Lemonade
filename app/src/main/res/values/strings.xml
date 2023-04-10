@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Lemonade</string>
+    <string name="stageOne">Нажмите, чтобы выбрать лимон!</string>
+    <string name="stageTwo">Нажмите, чтобы выжать сок из лимона!</string>
+    <string name="stageThree">Нажмите, чтобы выпить свой лимонад!</string>
+    <string name="StageEnd">Нажмите, чтобы начать снова!</string>
 </resources>
